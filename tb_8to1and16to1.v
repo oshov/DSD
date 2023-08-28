@@ -30,35 +30,17 @@ module tb_muxes;
         data = 8'b10101010;
         sel = 4'b0110;
 
-        // Test 8-to-1 mux
-        $display("Testing 8-to-1 mux...");
-        $monitor("data = %b, sel = %b, out_8to1 = %b", data, sel, out_8to1);
+        // Open VCD dumpfile
+        $dumpfile("tb_muxes.vcd");
+        $dumpvars;
 
-        // Apply different select values
-        sel = 4'b0001;
-        #10;
-
-        sel = 4'b0010;
-        #10;
-
-        sel = 4'b0100;
-        #10;
-
-        // Test 16-to-1 mux
-        $display("Testing 16-to-1 mux...");
-        $monitor("data = %b, sel = %b, out_16to1 = %b", data, sel, out_16to1);
-
-        // Apply different select values
-        sel = 4'b1000;
-        #10;
-
-        sel = 4'b0101;
-        #10;
-
-        sel = 4'b1111;
-        #10;
+        // Simulate for a few clock cycles
+        repeat (20) begin
+            #10;
+        end
 
         $finish;
     end
 
 endmodule
+

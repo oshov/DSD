@@ -18,31 +18,37 @@ module tb_mux_4to1;
     reg clk = 0;
     always #5 clk = ~clk;
 
-    // Test stimulus
+    // Initialize data and select
     initial begin
-        $display("Testing 4-to-1 Multiplexer");
-        
         data_in = 4'b0000;
         select = 2'b00;
-        #10;
-        $display("data_in: %b, select: %b, mux_out: %b", data_in, select, mux_out);
         
+        // Simulate for some cycles
+        #20;
+        
+        // Change inputs
         data_in = 4'b1010;
         select = 2'b01;
-        #10;
-        $display("data_in: %b, select: %b, mux_out: %b", data_in, select, mux_out);
         
+        // Simulate for some cycles
+        #20;
+        
+        // Change inputs
         data_in = 4'b1100;
         select = 2'b10;
-        #10;
-        $display("data_in: %b, select: %b, mux_out: %b", data_in, select, mux_out);
         
+        // Simulate for some cycles
+        #20;
+        
+        // Change inputs
         data_in = 4'b0101;
         select = 2'b11;
-        #10;
-        $display("data_in: %b, select: %b, mux_out: %b", data_in, select, mux_out);
+        
+        // Simulate for some cycles
+        #20;
         
         $finish;
     end
 
 endmodule
+

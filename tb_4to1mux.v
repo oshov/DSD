@@ -1,3 +1,5 @@
+`timescale 1ns/1ps
+
 module tb_mux_4to1;
 
     // Inputs
@@ -20,6 +22,10 @@ module tb_mux_4to1;
 
     // Initialize data and select
     initial begin
+        // Dump signals to waveform
+        $dumpfile("tb_mux_4to1.vcd");
+        $dumpvars(0, tb_mux_4to1);
+
         data_in = 4'b0000;
         select = 2'b00;
         
